@@ -1,0 +1,728 @@
+/* ===== 基本設定與變數 ===== */
+:root {
+  --green: #003400;
+  --green-200: #d0ddd2;
+  --paper: #f8f5ec;
+  --ink: #354235;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --container: 1080px;
+  --header-offset: 120px;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Noto Serif TC", serif;
+  line-height: 1.7;
+  color: var(--ink);
+  background: var(--paper);
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+.container {
+  max-width: var(--container);
+  margin: auto;
+  padding: 30px;
+}
+.section,
+footer {
+  scroll-margin-top: var(--header-offset);
+}
+
+/* ===== Header / Nav ===== */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: var(--green);
+}
+.bar-mid {
+  background-color: #003400;
+  padding: 1px 0;
+}
+.nav-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.brand {
+  color: #f8f5ec;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+.nav {
+  display: flex;
+  gap: 15px;
+}
+.nav a {
+  color: #f8f5ec;
+  text-decoration: none;
+}
+.nav a:hover {
+  text-decoration: underline;
+}
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #f8f5ec;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* ===== Hero ===== */
+.hero {
+  display: flex;
+  gap: 2rem;
+  align-items: stretch;
+}
+.carousel {
+  flex: 1;
+  min-width: 50%;
+  position: relative;
+}
+.carousel img {
+  height: 360px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+}
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 0.6rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.arrow.left { left: 10px; }
+.arrow.right { right: 10px; }
+.dots {
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+}
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ccc;
+  cursor: pointer;
+}
+.dot.active { background: var(--green); }
+.hero-side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.hero-side .hero-logo-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+.hero-side .hero-logo-wrapper img {
+  height: 80px;
+  width: auto;
+}
+.hero-slogan {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-grow: 1;
+}
+.hero-slogan p {
+  font-weight: 800;
+  font-size: 2rem;
+  color: var(--green);
+}
+.hero-side > img {
+  max-width: 120%;
+  height: 250px;
+  object-fit: cover;
+  align-self: flex-end;
+}
+
+/* ===== 通用標題線 ===== */
+.titleline {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  justify-content: center;
+}
+.titleline hr {
+  flex: 1;
+  border: none;
+  border-top: 3px solid var(--green-200);
+}
+.titleline h2 {
+  white-space: nowrap;
+  color: #000;
+  font-weight: 800;
+  text-align: center;
+}
+.titleline h2 span {
+  font-weight: 400;
+  font-size: 0.8em;
+}
+
+/* ===== 品牌故事 ===== */
+.story-container {
+  display: flex;
+  gap: 1rem;
+}
+.story-container img:nth-of-type(1) {
+  width: 30%;
+  height: 350px;
+  object-fit: cover;
+}
+.story-container img:nth-of-type(2) {
+  width: 70%;
+  height: 350px;
+  object-fit: cover;
+}
+.story-banner {
+  text-align: center;
+  margin-top: 2rem;
+  background: var(--green);
+  color: #fff;
+  padding: 1.5rem;
+  font-weight: 700;
+}
+
+/* ===== 什麼是牛樟芝 ===== */
+.about img {
+  height: 300px;
+  object-fit: cover;
+  margin: 0 auto 1rem auto;
+}
+.about img[alt*="三萜類"],
+.about img[alt*="如何"] {
+  height: 400px;
+}
+.about .text-center { text-align: center; }
+.about .text-description p { margin: 0; font-size: 1rem; line-height: 1.6; color: #333; }
+.about .text-description span { font-size: 1.2rem; color: var(--green); font-weight: 800; }
+.about .section-subtitle { margin-top: 1.5rem; }
+.about .section-subtitle span { display: block; text-align: center; font-size: 1.2rem; color: var(--green); font-weight: 800; }
+.about .section-subtitle-how { margin-top: 1.5rem; margin-bottom: 2rem; }
+.about .section-subtitle-how span { display: block; text-align: center; font-size: 1.2rem; color: var(--green); font-weight: 800; }
+
+/* ===== 產品與購買方式 ===== */
+.band { background: var(--green); padding: 2rem 0; }
+.cards { display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center; }
+.card { background: #fff; border-radius: 12px; width: 280px; display: flex; flex-direction: column; overflow: hidden; box-shadow: var(--shadow); text-align: center; }
+.card > img { height: 200px; object-fit: cover; }
+.card .card-content { padding: 1rem; flex-grow: 1; display: flex; flex-direction: column; }
+.card h3 { color: var(--green); font-size: 1.3rem; font-weight: 700; }
+.card .sub { color: var(--green); font-size: 1.3rem; font-weight: 700; }
+.card .note { color: #bb0000; font-size: 1rem; }
+.card .packaging-info { color: var(--green); font-weight: 700; }
+.btns { display: flex; gap: 0.5rem; justify-content: space-around; padding: 1rem; margin-top: auto; }
+.btn { padding: 0.55rem 0.9rem; border-radius: 999px; font-weight: 700; cursor: pointer; }
+.btn-outline { border: 2px solid var(--green); color: var(--green); background: #fff; }
+.btn-fill { border: none; background: var(--green); color: #fff; }
+.order-tel-banner { text-align: center; margin-top: 1rem; margin-bottom: 0.1rem; font-size: 1.2rem; font-weight: bold; color: white; }
+
+/* ===== 產品詳情 ===== */
+#product-detail { display: none; background: var(--green); padding: 2rem 0; }
+.detail-box { background: #fff; border-radius: 12px; padding: 2rem; margin: 1.5rem; display: flex; flex-wrap: wrap; gap: 2rem; }
+.detail-col { flex: 1; min-width: 300px; }
+.detail-title { color: var(--green); font-weight: 800; font-size: 1.2rem; text-align: left; }
+#detail-desc { margin-top: 0.75rem; color: #333; text-align: left; }
+#detail-extra { margin-top: 0.5rem; text-align: left; }
+#detail-note { color: var(--green); font-weight: 700; text-align: left; }
+.price { margin-top: 0.75rem; font-weight: 700; text-align: left; }
+.detail-warn { color: #c51100; font-size: 0.9rem; }
+.detail-bullet { margin: 0.5rem 0 0 1.5rem; }
+.detail-img { margin-top: 1rem; background: transparent; height: auto; display: flex; align-items: center; justify-content: center; }
+.detail-close { display: flex; justify-content: flex-end; width: 100%; }
+.detail-close .btn { background: #fff; color: var(--green); border: 2px solid var(--green); }
+
+/* ===== 品牌榮譽 ===== */
+.honor-container { display: flex; flex-wrap: wrap; gap: 2rem; }
+.honor-item { flex: 1; min-width: 300px; }
+.honor-item img { height: 350px; object-fit: cover; }
+.honor-item p { margin-top: 0.8rem; color: #333; line-height: 1.6; font-weight: 700; }
+
+/* ===== 七大特色 ===== */
+.features { display: flex; flex-direction: column; gap: 2rem; align-items: center; }
+.feature { display: flex; justify-content: center; }
+.feature .row { display: flex; align-items: flex-start; gap: 1rem; text-align: left; }
+.feature.shift { margin-left: 100px; }
+.medal { width: 80px; height: 80px; flex-shrink: 0; }
+.feature p, .feature .patent-list { font-weight: 700; }
+.patent-list { display: grid; grid-template-columns: auto auto; gap: 0.5rem 1rem; }
+
+/* ===== 檢驗區 ===== */
+.cert-wrap { display: flex; gap: 2rem; flex-wrap: wrap; align-items: center; }
+.cert-left { flex: 2; min-width: 300px; display: flex; flex-direction: column; justify-content: center; }
+.cert-left p { line-height: 1.6; margin-bottom: 1rem; text-align: left; }
+.cert-left .highlight-red { color: #c51100; font-weight: 700; }
+.cert-left .highlight-black { color: #000; font-weight: 700; }
+.cert-left img { height: 300px; object-fit: contain; } /* SGS 證書圖維持 contain */
+.cert-right { flex: 1; min-width: 260px; }
+.cert-right p { color: #333; line-height: 1.6; font-weight: 700; }
+.cert-notice-banner { margin-top: 1.5rem; text-align: center; }
+.cert-notice-box { display: inline-block; border: 2px solid var(--green); color: var(--green); padding: 0.5rem 1rem; font-weight: 700; }
+.cert-section { margin-top: 2rem; }
+.cert-section h3 { font-size: 1.3rem; font-weight: 700; color: #000; margin-bottom: 1.5rem; text-align: left; }
+.cert-grid { display: flex; flex-wrap: wrap; gap: 1.5rem; }
+.cert-card { flex: 1 1 calc(25% - 1.5rem); min-width: 200px; text-align: center; }
+.cert-card img { height: 300px; object-fit: cover; }
+.cert-card p { margin-top: 0.5rem; color: #333; font-weight: 700; }
+.flex-container { display: flex; gap: 2rem; flex-wrap: wrap; align-items: flex-start; }
+.flex-item { flex: 1; min-width: 300px; }
+.patent-item { display: flex; align-items: center; gap: 1rem; }
+.patent-item img { height: 300px; object-fit: cover; }
+.patent-item p { margin: 0; color: #333; line-height: 1.6; font-weight: 700; }
+.tfda-item img:first-child { height: 300px; object-fit: cover; }
+.tfda-sub-item { flex: 1; min-width: 250px; display: flex; flex-direction: column; gap: 1rem; }
+.tfda-sub-item img { max-width: 60%; height: 150px; object-fit: cover; }
+.tfda-sub-item p { margin: 0; color: #333; line-height: 1.6; font-weight: 700; }
+.animal-test-item { margin-top: 2rem; margin-left: 2rem; }
+.animal-test-item h3 { text-align: left; }
+.animal-test-item p { color: #333; line-height: 1.4; margin: 0; white-space: pre-line; font-weight: 700; }
+
+/* ===== Footer / 聯絡我們 ===== */
+footer { background: var(--green); color: #fff; padding: 2rem 1rem; position: relative; }
+footer a { color: #cde3d2; text-decoration: underline; }
+footer .container { position: relative; }
+.contact-title { font-weight: 800; font-size: 1.6rem; margin-bottom: 2rem; color: #fff; text-align: left; padding-right: 110px; }
+.foot { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; }
+.foot-grid { display: grid; grid-template-columns: auto auto; gap: 0.5rem 1.5rem; min-width: 280px; text-align: left; }
+.foot-r { display: flex; flex-direction: column; gap: 0.5rem; justify-content: center; min-width: 280px; text-align: right; }
+.top-circle { position: absolute; top: -56px; right: 0; width: 96px; height: 96px; border-radius: 50%; background: #fff; color: var(--green); border: 4px solid var(--green); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 18px; letter-spacing: 1px; box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15); cursor: pointer; z-index: 5; }
+
+/* ======================================= */
+/* ===== RWD (響應式網頁設計) ===== */
+/* ======================================= */
+@media (max-width: 992px) {
+  .hero { flex-direction: column; }
+  .card { width: calc(50% - 0.75rem); }
+}
+
+@media (max-width: 768px) {
+  .menu-toggle { display: block; order: 1; }
+  .brand-logo { order: 2; }
+  .nav-wrap { flex-wrap: wrap; }
+  .nav { display: none; flex-direction: column; width: 100%; background-color: #003400; padding: 10px 0; order: 3; gap: 0; }
+  .nav.show { display: flex; }
+  .nav a { padding: 10px; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.2); }
+  
+  .story-container { flex-direction: column; }
+  .card { width: 100%; }
+  .btns { flex-wrap: wrap; }
+  .feature.shift { margin-left: 0; }
+  
+  .contact-title { padding-right: 0; text-align: center; }
+  .foot { justify-content: center; }
+  .foot-grid { text-align: center; grid-template-columns: 1fr; }
+  .foot-r { text-align: center; }
+  .top-circle { width: 84px; height: 84px; font-size: 16px; top: -48px; right: 15px; }
+  .animal-test-item { margin-left: 0; }
+  
+  /* --- 解決手機圖片裁切的核心程式碼 --- */
+  #home img,
+  #story img,
+  #about img,
+  #products img,
+  #honor img,
+  .cert-grid img,
+  .cert-section img {
+    height: auto !important;
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .container { padding: 20px; }
+  .hero-slogan p { font-size: 1.5rem; }
+  .titleline h2 { font-size: 1.5rem; }
+  .feature .row { flex-direction: column; align-items: center; text-align: center; }
+}
+
+    </style>
+  </head>
+  <body>
+    <!-- ======================= -->
+    <!--     HTML 內容部分     -->
+    <!-- ======================= -->
+    <header>
+      <div class="bar-mid">
+        <div class="container nav-wrap">
+          <button class="menu-toggle" aria-label="開啟選單">☰</button>
+          <div class="brand-logo">
+            <div class="brand">鼎久生技有限公司</div>
+          </div>
+          <nav class="nav">
+            <a href="#home">首頁</a>
+            <a href="#story">品牌故事</a>
+            <a href="#about">什麼是牛樟芝？</a>
+            <a href="#products">產品與購買方式</a>
+            <a href="#honor">品牌榮譽</a>
+            <a href="#contact">聯絡我們</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <section id="home" class="section">
+      <div class="container hero">
+        <div class="carousel">
+          <img id="carImg" src="輪播圖片1.png" alt="輪播圖片" />
+          <button class="arrow left" id="prev" aria-label="上一張">&#10094;</button>
+          <button class="arrow right" id="next" aria-label="下一張">&#10095;</button>
+          <div class="dots" id="dots"></div>
+        </div>
+        <div class="hero-side">
+          <div class="hero-logo-wrapper">
+            <img src="logonew_工作區域 1.png" alt="logo" />
+          </div>
+          <div class="hero-slogan">
+            <p>「人若健康 幸福自來<br />天然養生、樂活鼎久。」</p>
+          </div>
+          <img src="首頁綠底圖片.png" alt="首頁綠底圖片" />
+        </div>
+      </div>
+    </section>
+
+    <section id="story" class="section">
+      <div class="container">
+        <div class="titleline">
+          <hr />
+          <h2>品牌故事<span style="font-weight: 400; font-size: 0.8em"> ABOUT&nbsp;US</span></h2>
+          <hr />
+        </div>
+        <div class="story-container">
+          <img src="品牌故事照片1.png" alt="圖片1" />
+          <img src="品牌故事照片2.png" alt="圖片2" />
+        </div>
+        <div class="story-banner">我們源自台灣深山，堅持以自然方式培育牛樟芝， 從選木、培菌到萃取，每一道工序都不假他人之手， 致力為每一位顧客提供純淨、有效、值得信賴的產品。</div>
+      </div>
+    </section>
+
+    <section id="about" class="section about">
+      <div class="container">
+        <div class="titleline">
+          <hr />
+          <h2>什麼是牛樟芝？</h2>
+          <hr />
+        </div>
+        <img src="什麼是牛樟芝圖片.png" alt="什麼是牛樟芝圖片" />
+        <div class="text-center text-description">
+          <p><span>牛樟芝（Antrodia cinnamomea）</span><br />是台灣特有種真菌，寄生於牛樟木中，被譽為「森林紅寶石」，具有調節生理機能、促進新陳代謝、滋補強身等功效。<br />我們所有產品皆使用天然牛樟木栽培，非合成菌絲體。</p>
+        </div>
+        <div class="section-subtitle">
+          <p><span>三萜類（Triterpenoids）</span></p>
+        </div>
+        <img src="三萜類圖片.png" alt="三萜類圖片" />
+        <div class="section-subtitle-how">
+          <p><span>如何取得三萜類含量高的牛樟芝？</span></p>
+        </div>
+        <img src="如何.png" alt="如何" />
+      </div>
+    </section>
+
+    <section id="products" class="section">
+      <div class="container">
+        <div class="titleline">
+          <hr />
+          <h2>產品與購買方式</h2>
+          <hr />
+        </div>
+      </div>
+      <div class="band">
+        <div class="container">
+          <div id="product-cards" class="cards">
+            <div class="card">
+              <img src="產品1.png" alt="產品1" />
+              <div class="card-content">
+                <h3>牛樟芝專利</h3>
+                <div class="sub">各種萃取液</div>
+                <div class="note">專利原料及技術產品</div>
+              </div>
+              <div class="btns">
+                <button class="btn btn-outline" onclick="showDetail('p1')">了解更多</button>
+                <a class="btn btn-fill" href="tel:0938858866">電話訂購</a>
+              </div>
+            </div>
+            <div class="card">
+              <img src="產品2.png" alt="產品2" />
+              <div class="card-content">
+                <h3>牛樟芝專利</h3>
+                <div class="sub">子實體黃金膠囊</div>
+                <div class="packaging-info">（60入）</div>
+              </div>
+              <div class="btns">
+                <button class="btn btn-outline" onclick="showDetail('p2')">了解更多</button>
+                <a class="btn btn-fill" href="tel:0938858866">電話訂購</a>
+              </div>
+            </div>
+            <div class="card">
+              <img src="產品3.png" alt="產品3" />
+              <div class="card-content">
+                <h3>牛樟芝專利</h3>
+                <div class="sub">固態菌絲體膠囊</div>
+                <div class="packaging-info">（60入、20入）</div>
+              </div>
+              <div class="btns">
+                <button class="btn btn-outline" onclick="showDetail('p3')">了解更多</button>
+              </div>
+            </div>
+          </div>
+          <div class="order-tel-banner">訂購電話：0938-858-866</div>
+        </div>
+      </div>
+    </section>
+
+    <div id="product-detail">
+      <div class="detail-box container">
+        <div class="detail-col">
+          <div id="detail-title" class="detail-title">產品名稱</div>
+          <div id="detail-desc"></div>
+          <div id="detail-extra"></div>
+        </div>
+        <div class="detail-col">
+          <div id="detail-note"></div>
+          <div id="detail-price" class="price"></div>
+          <div class="detail-img">
+            <span id="detail-imgph">[圖片]</span>
+          </div>
+        </div>
+        <div class="detail-close">
+          <button class="btn" onclick="goBack()">關閉</button>
+        </div>
+      </div>
+    </div>
+
+    <section id="honor" class="section">
+      <div class="container">
+        <div class="titleline">
+          <hr />
+          <h2>品牌榮譽</h2>
+          <hr />
+        </div>
+        <div class="honor-container">
+          <div class="honor-item">
+            <img src="品牌榮譽1.png" alt="品牌榮譽1" />
+            <p>金峰獎十大傑出商品金峰獎</p>
+          </div>
+          <div class="honor-item">
+            <img src="品牌榮譽2.png" alt="品牌榮譽2" />
+            <p>IMC全國創新比賽製造科技類優良獎</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="titleline">
+          <hr />
+          <h2>產品七大特色</h2>
+          <hr />
+        </div>
+        <div class="features">
+          <div class="feature"><div class="row"><img src="獎章1.png" alt="獎章1" class="medal" /><p>BCRC 編號39170 之菌株，已於食品工業研究所生物資源保存及研究中心、<br />完成（完整基因體定序）與（寄存）。</p></div></div>
+          <div class="feature shift"><div class="row"><img src="獎章2.png" alt="獎章2" class="medal" /><p>( 專利發明第I 549614 號)技術，製造出牛樟芝子實體油萃取物，<br />讓珍貴有效成分充分被人體全面吸收以達到功效。</p></div></div>
+          <div class="feature"><div class="row"><img src="獎章3.png" alt="獎章3" class="medal" /><div class="patent-list"><div>【利用固態營養基質懸浮液培養絲狀真菌的方法】</div><div>(專利發明第I 242044 號)</div><div>【固態發酵子實體培植轉融方法及設備】</div><div>(專利發明第I 523603 號)</div><div>【牛樟芝之萃取方法及其萃取裝置】</div><div>(專利發明第I 549614 號)</div><div>【牛樟芝之萃取物的用途--抗藍光】</div><div>(專利發明第I 658831 號)</div></div></div></div>
+          <div class="feature shift"><div class="row"><img src="獎章4.png" alt="獎章4" class="medal" /><p>(牛樟芝有六種原料，通過動物毒理實驗)合格，經衛福部備查是目前牛樟芝界<br />原料種類完成認證最多的指標廠商</p></div></div>
+          <div class="feature"><div class="row"><img src="獎章5.png" alt="獎章5" class="medal" /><p>( 專利發明第I 523603 號)技術，培育出總三帖類高達32.4～40mg/g 的成就。<br />( 專利發明第I 549614 號)技術，製造出總三帖類高達317mg/g 的成就。</p></div></div>
+          <div class="feature shift"><div class="row"><img src="獎章6.png" alt="獎章6" class="medal" /><p>本公司出產之(固態菌絲體膠曩) 與(子實體黃金膠曩) ，<br />是國內第一且唯一入選榮獲【中華民國第十八屆金峰獎十大傑出商品】產品，<br />亦獲IMC 國際工商經營研究團隊評選為【創新製造科技類-優良獎】產品。</p></div></div>
+          <div class="feature"><div class="row"><img src="獎章7.png" alt="獎章7" class="medal" /><p>真正全台第一家原料（通過90 天100 倍劑量動物毒理實驗）的研發團隊。<br />(依據衛福部105/01/19 備查回函證明)</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="titleline">
+          <hr />
+          <h2>產品檢驗合格證書一覽</h2>
+          <hr />
+        </div>
+        <div class="cert-wrap">
+          <div class="cert-left">
+            <p><span class="highlight-black">產品須通過國際檢測單位</span><span class="highlight-red">SGS七大項目檢測</span></p>
+            <img src="產品檢驗合格證書一覽.png" alt="產品檢驗合格證書一覽" />
+          </div>
+          <div class="cert-right">
+            <p>｜6 項產品成分 <br />｜312 項常見西藥成分分析<br />｜310 項農藥定量分析<br />｜24 項農藥（有機氯）定量分析<br />｜4 項重金屬<br />｜4 項黃菊毒素<br />｜9 項可塑劑/塑化劑<br />｜5 項生菌素.大腸桿菌.沙門氏菌.<br />&nbsp;&nbsp;&nbsp;金黃色葡萄球菌.綠膿桿菌<br />｜1 項總糖含量<br />｜8 項營養成分</p>
+          </div>
+        </div>
+        <div class="cert-notice-banner">
+          <span class="cert-notice-box">以上600多項檢驗均合格，為產品使用安全之最佳保障</span>
+        </div>
+        <div class="cert-section">
+          <div class="flex-container">
+            <div class="flex-item">
+              <h3>衛生局備查</h3>
+              <div class="flex-container">
+                <div class="tfda-item">
+                  <img src="衛生局1.png" alt="衛生局1" />
+                  <div class="tfda-sub-item">
+                    <img src="衛生局2.png" alt="衛生局2" />
+                    <p>｜90天100倍劑量 餵食毒性試驗通過（才可進行備查）<br />｜符合衛福部牛樟芝食品管理法及標示相關規定，<br />已於2016年1月19日經臺灣TFDA原料核准備查品質獨特、無與倫比。</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="animal-test-item">
+              <h3>產品目前通過的六種動物毒理實驗</h3>
+              <p>｜牛樟椴木牛樟芝子實體酒精及水萃取液物原料<br>｜牛樟椴木牛樟芝子實體油萃取物原料 <br>｜牛樟芝菌絲體固態培養原料<br>｜牛樟芝食用油萃取物 <br>｜牛樟芝固態培養物 <br>｜牛樟椴木牛樟芝子實體<br></p>
+            </div>
+          </div>
+        </div>
+        <div class="cert-section">
+          <h3>其他合格檢驗書</h3>
+          <div class="cert-grid">
+            <div class="cert-card"><img src="書1.png" alt="書1" /><p>牛樟椴木牛樟芝子實體酒精及水萃取液物原料</p></div>
+            <div class="cert-card"><img src="書2.png" alt="書2" /><p>牛樟椴木牛樟芝子實體油萃取物原料</p></div>
+            <div class="cert-card"><img src="書3.png" alt="書3" /><p>牛樟芝菌絲體固態培養原料</p></div>
+            <div class="cert-card"><img src="書4.png" alt="書4" /><p>牛樟芝食用油萃取物、牛樟芝固態培養物</p></div>
+          </div>
+        </div>
+        <div class="cert-section">
+          <h3>發明專利證書</h3>
+          <div class="flex-container">
+            <div class="patent-item flex-item">
+              <img src="中華民國專利證書1.jpg" alt="中華民國專利證書1" />
+              <div><p>固態發酵子實體培植<br />轉融方法及設備</p></div>
+            </div>
+            <div class="patent-item flex-item">
+              <img src="中華民國專利證書2.jpg" alt="中華民國專利證書2" />
+              <div><p>牛樟芝之萃取方法<br />及其萃取裝置</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer id="contact">
+      <div class="container">
+        <button class="top-circle" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到頂部">TOP</button>
+        <h2 class="contact-title">聯絡我們 CONTACT US</h2>
+        <div class="foot">
+          <div class="foot-grid">
+            <div>連絡電話</div>
+            <div><a href="tel:0938858866">0938858866</a></div>
+            <div>信箱</div>
+            <div><a href="mailto:a919686@gmail.com">a919686@gmail.com</a></div>
+            <div>LINE ID</div>
+            <div>0907865389</div>
+          </div>
+          <div class="foot-r">
+            <div>鼎久生技有限公司，版權所有 COPYRIGHT ©</div>
+            <a href="https://www.iware.com.tw/privacy.html" target="_blank" rel="noopener">隱私權政策</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ======================= -->
+    <!--      JS 腳本部分      -->
+    <!-- ======================================= -->
+    <script>
+      // 輪播
+      const imgs = ["輪播圖片1.png", "輪播圖片2.png", "輪播圖片3.png"];
+      let idx = 0;
+      const carImg = document.getElementById("carImg");
+      const dots = document.getElementById("dots");
+
+      function paint() {
+        if (!carImg) return; // 防呆
+        carImg.src = imgs[idx] || "";
+        dots.innerHTML = "";
+        imgs.forEach((_, i) => {
+          const d = document.createElement("span");
+          d.className = "dot" + (i === idx ? " active" : "");
+          d.onclick = () => { idx = i; paint(); };
+          dots.appendChild(d);
+        });
+      }
+
+      document.getElementById("prev").onclick = () => { idx = (idx - 1 + imgs.length) % imgs.length; paint(); };
+      document.getElementById("next").onclick = () => { idx = (idx + 1) % imgs.length; paint(); };
+      
+      setInterval(() => { idx = (idx + 1) % imgs.length; paint(); }, 3000);
+      paint();
+
+      // 漢堡選單
+      document.querySelector(".menu-toggle").addEventListener("click", function () {
+        document.querySelector(".nav").classList.toggle("show");
+      });
+
+      // 產品詳情切換
+      function showDetail(key) {
+        const cards = document.getElementById("product-cards");
+        const detail = document.getElementById("product-detail");
+        cards.style.display = "none";
+        detail.style.display = "block";
+
+        const t = document.getElementById("detail-title");
+        const d = document.getElementById("detail-desc");
+        const e = document.getElementById("detail-extra");
+        const n = document.getElementById("detail-note");
+        const p = document.getElementById("detail-price");
+        const ph = document.getElementById("detail-imgph");
+
+        if (key === "p1") {
+          t.innerHTML = "牛樟芝專利各種萃取液 <span style='color:#C51100'>｜自然濃縮珍稀本質</span>";
+          d.innerHTML = "原料為牛樟芝椴木子實體與類子實體（固態菌絲體），運用獨家專利技術萃取製成，擁有高濃度總三萜含量與多種牛樟芝活性成分。";
+          e.innerHTML = "<ul class='detail-bullet'><li>純子實體萃取液：NT$150,000～300,000/瓶</li><li>子實體菌膜萃取液：NT$80,000～120,000/瓶</li><li>子實體＋固態菌絲體萃取液：NT$50,000/瓶</li><li>固態菌絲體萃取液：NT$25,000/瓶</li></ul><p class='detail-warn' style='margin-top:.5rem;'>(血友病、插管患者、孕婦嬰兒，手術後未癒、女性經期期間均不可食用)</p>";
+          n.textContent = "【600 c.c./瓶；本產品為客製化訂做，採預定制】";
+          ph.innerHTML = "<img src='產品1詳細.png' alt='產品1詳細'>";
+        }
+        if (key === "p2") {
+          t.innerHTML = "子實體黃金膠囊 <span style='color:#C51100'>｜精粹封存質感精華</span>";
+          d.innerHTML = "以椴木為培養基材栽培 1.5～3 年長成牛樟實菇，採獨家「油萃取」技術，完全萃取出三萜類，製成「子實體」黃金膠囊。總三萜量最高可達 158.5 mg/粒（檢測總三萜類 317 mg/g）。<br><br><b>食用建議：</b>一般者早晚飯前 1～2 粒（間隔 12 小時佳），特殊情況可酌量增加。<br><span class='detail-warn'>(血友病、插管患者、孕婦嬰兒，手術後未癒、女性經期期間均不可食用)</span>";
+          n.textContent = "【60 入包裝 NT＄36,000 / 30g / 盒】";
+          p.textContent = "";
+          ph.innerHTML = "<img src='產品2詳細.png' alt='產品2詳細'>";
+        }
+        if (key === "p3") {
+          t.innerHTML = "牛樟芝專利 固態菌絲體膠囊 <span style='color:#C51100'>｜調整體質基本保養</span>";
+          d.innerHTML = "嚴選牛樟芝菌種以五穀雜糧為基質，採專利「固態發酵子實體轉融法」，栽培 180～300 天製成，保留數百種活性成分。總三萜類 32.4 mg/g（最高 40 mg/g），SOD 70,000 unit/g。建議成人早晚飯前 2 粒空腹食用（間隔 12 小時）。<br><span class='detail-warn'>(血友病、插管患者、孕婦嬰兒，手術後未癒、女性經期期間均不可食用)</span>";
+          n.innerHTML = "【60 入包裝 NT＄3,980 / 30g / 盒】<br>【20 入包裝 NT＄1,350 / 10g / 盒】";
+          p.textContent = "";
+          ph.innerHTML = "<img src='產品3詳細.png' alt='產品3詳細'>";
+        }
+        detail.scrollIntoView({ behavior: "smooth" });
+      }
+
+      function goBack() {
+        const cards = document.getElementById("product-cards");
+        const detail = document.getElementById("product-detail");
+        detail.style.display = "none";
+        cards.style.display = "flex";
+        document.getElementById("products").scrollIntoView({ behavior: "smooth" });
+      }
+    </script>
+  </body>
+</html>
