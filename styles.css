@@ -741,19 +741,13 @@ footer .container { position: relative; }
 }
 
 @media (max-width: 768px) {
-  .foot-flex {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  .foot-qr {
+    display: flex;
+    justify-content: center;
+    width: 100%;
   }
 
-  .foot-grid {
-    text-align: center;
-    grid-template-columns: 1fr;
-  }
-
-  /* 👉 手機上圖片放大一點 */
   .foot-qr img {
-    width: 200px; /* 或 60vw / 80% 等比例 */
+    width: 200px; /* 手機上可稍微放大 */
   }
 }
