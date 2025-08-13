@@ -744,10 +744,18 @@ footer .container { position: relative; }
 
 /* 手機版縮得更小 + 保持圓角 */
 @media (max-width: 768px) {
+  .foot-qr {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
   .foot-qr img {
-    width: 50px;
-    border-radius: 16px;
+    width: 70px;
+    border-radius: 14px !important;  /* 強制套用圓角 */
     border: 2px solid white;
+    background: white;
   }
 }
+
 
