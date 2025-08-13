@@ -726,18 +726,20 @@ footer .container { position: relative; }
     </script>
   </body>
 </html>
-.foot-flex {
+.foot-qr {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .foot-qr img {
-  width: 150px;
-  border-radius: 8px;
+  width: 120px;
+  border-radius: 16px;      /* ✅ 大圓角，視覺上不再是直角 */
+  border: 3px solid white;
   background: white;
-  border: 4px solid white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);  /* ✅ 適度陰影更柔和 */
 }
 
 /* 手機版縮得更小 + 保持圓角 */
