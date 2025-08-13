@@ -746,8 +746,14 @@ footer .container { position: relative; }
     align-items: center;
     text-align: center;
   }
+
   .foot-grid {
     text-align: center;
     grid-template-columns: 1fr;
+  }
+
+  /* 👉 手機上圖片放大一點 */
+  .foot-qr img {
+    width: 200px; /* 或 60vw / 80% 等比例 */
   }
 }
