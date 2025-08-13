@@ -726,7 +726,7 @@ footer .container { position: relative; }
     </script>
   </body>
 </html>
-.foot-qr {
+..foot-qr {
   display: flex;
   justify-content: center;
   width: 100%;
@@ -735,26 +735,18 @@ footer .container { position: relative; }
 }
 
 .foot-qr img {
-  width: 120px;
-  border-radius: 16px;      /* ✅ 大圓角，視覺上不再是直角 */
-  border: 3px solid white;
+  width: 120px;           /* 比原本 150px 瘦一點 */
+  border-radius: 6px;     /* 稍微縮小圓角 */
+  border: 3px solid white;/* 邊框變薄 */
   background: white;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);  /* ✅ 適度陰影更柔和 */
 }
 
-/* 手機版縮得更小 + 保持圓角 */
+/* 手機：再小一點 */
 @media (max-width: 768px) {
-  .foot-qr {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-  }
-
   .foot-qr img {
-    width: 70px;
-    border-radius: 14px !important;  /* 強制套用圓角 */
+    width: 90px;
+    border-radius: 5px;
     border: 2px solid white;
-    background: white;
   }
 }
 
