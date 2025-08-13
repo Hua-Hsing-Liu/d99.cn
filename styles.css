@@ -745,8 +745,8 @@ footer .container { position: relative; }
 /* 手機版縮得更小 + 保持圓角 */
 @media (max-width: 768px) {
   .foot-qr img {
-    width: 70px;
-    border-radius: 14px;
+    width: 50px;
+    border-radius: 16px;
     border: 2px solid white;
   }
 }
