@@ -740,11 +740,12 @@ footer .container { position: relative; }
   border: 4px solid white;
 }
 
-/* 手機：再小一點 */
+/* 手機版縮得更小 + 保持圓角 */
 @media (max-width: 768px) {
   .foot-qr img {
-    width: 90px;
-    border-radius: 5px;
+    width: 70px;
+    border-radius: 14px;
     border: 2px solid white;
   }
 }
+
