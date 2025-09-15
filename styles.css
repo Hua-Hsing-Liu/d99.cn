@@ -1,0 +1,1568 @@
+/* ===== 基本設定與變數 ===== */
+:root {
+  --green: #003400;
+  --green-200: #d0ddd2;
+  --paper: #f8f5ec;
+  --ink: #354235;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --container: 1080px;
+  --header-offset: 120px;
+  --stagger-offset: 140px;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Noto Serif TC", serif;
+  line-height: 1.7;
+  color: var(--ink);
+  background: var(--paper);
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+.container {
+  max-width: var(--container);
+  margin: auto;
+  padding: 30px;
+}
+.section,
+footer {
+  scroll-margin-top: var(--header-offset);
+}
+
+/* ===== Header / Nav ===== */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--green);
+}
+.bar-mid {
+  background: #003400;
+  padding: 1px 0;
+}
+.nav-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.brand {
+  color: #f8f5ec;
+  font-weight: 700;
+  font-size: 1.1rem;
+  white-space: nowrap;
+}
+.nav {
+  display: flex;
+  gap: 15px;
+}
+.nav a {
+  color: #f8f5ec;
+}
+.nav a:hover {
+  text-decoration: underline;
+}
+.menu-toggle {
+  display: none;
+  background: 0;
+  border: 0;
+  color: #f8f5ec;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* ===== Hero ===== */
+.container.hero {
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: 0;
+  width: 110%;
+  transform: translateX(-5%);
+}
+.hero {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  align-items: stretch;
+  gap: 16px;
+}
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+}
+#carImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 0;
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+  padding: 8px 12px;
+  cursor: pointer;
+  z-index: 2;
+}
+.arrow.left {
+  left: 8px;
+}
+.arrow.right {
+  right: 8px;
+}
+.dots {
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 2;
+}
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+}
+.dot.active {
+  background: #fff;
+}
+.hero-side {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: flex-start;
+  height: 100%;
+}
+.hero-side .hero-logo-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+.hero-side .hero-logo-wrapper img {
+  height: 80px;
+  width: auto;
+}
+.hero-slogan {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  flex-grow: 1;
+}
+.hero-slogan p {
+  font-weight: 800;
+  font-size: 2rem;
+  color: var(--green);
+}
+.hero-side > img {
+  max-width: 120%;
+  height: 250px;
+  object-fit: cover;
+  align-self: flex-end;
+}
+
+/* ===== 通用標題線 ===== */
+.titleline {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  justify-content: center;
+}
+.titleline hr {
+  flex: 1;
+  border: 0;
+  border-top: 3px solid var(--green-200);
+}
+.titleline h2 {
+  white-space: nowrap;
+  color: #000;
+  font-weight: 800;
+  text-align: center;
+}
+.titleline h2 span {
+  font-weight: 400;
+  font-size: 0.8em;
+}
+
+/* ===== 品牌故事 ===== */
+.story-container {
+  display: flex;
+  gap: 1rem;
+}
+.story-container img:nth-of-type(1) {
+  width: 30%;
+  height: 350px;
+  object-fit: cover;
+}
+.story-container img:nth-of-type(2) {
+  width: 70%;
+  height: 350px;
+  object-fit: cover;
+}
+.story-banner {
+  text-align: center;
+  margin-top: 2rem;
+  background: var(--green);
+  color: #fff;
+  padding: 1.5rem;
+  font-weight: 700;
+}
+
+/* ===== 什麼是牛樟芝 ===== */
+.about img {
+  height: 300px;
+  object-fit: cover;
+  margin: 0 auto 1rem;
+}
+.about img[alt*="三萜類"],
+.about img[alt*="如何"] {
+  height: 400px;
+}
+.about .text-center {
+  text-align: center;
+}
+.about .text-description p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+}
+.about .text-description span {
+  font-size: 1.2rem;
+  color: var(--green);
+  font-weight: 800;
+}
+.about .section-subtitle {
+  margin-top: 1.5rem;
+}
+.about .section-subtitle-how {
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+}
+.about .section-subtitle span,
+.about .section-subtitle-how span {
+  display: block;
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--green);
+  font-weight: 800;
+}
+
+/* ===== 產品與購買方式 ===== */
+.band {
+  background: var(--green);
+  padding: 2rem 0;
+}
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+.card {
+  background: #fff;
+  border-radius: 12px;
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+.card > img {
+  height: 200px;
+  object-fit: cover;
+}
+.card .card-content {
+  padding: 1rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.card h3,
+.card .sub,
+.card .packaging-info {
+  color: var(--green);
+  font-weight: 700;
+}
+.card h3,
+.card .sub {
+  font-size: 1.3rem;
+}
+.card .note {
+  color: #bb0000;
+  font-size: 1rem;
+}
+.btns {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: space-around;
+  padding: 1rem;
+  margin-top: auto;
+}
+.btn {
+  padding: 0.55rem 0.9rem;
+  border-radius: 999px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: "Noto Serif TC", serif;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.btn-outline {
+  border: 2px solid var(--green);
+  color: var(--green);
+  background: #fff;
+}
+.btn-fill {
+  border: 0;
+  background: var(--green);
+  color: #fff;
+}
+.order-tel-banner {
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 0.1rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* ===== 產品詳情 ===== */
+#product-detail {
+  display: none;
+  background: var(--green);
+  padding: 2rem 0;
+}
+.detail-box {
+  background: #fff;
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 1.5rem auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: var(--container);
+  justify-content: center;
+}
+.detail-col {
+  flex: 1 1 420px;
+  min-width: 300px;
+}
+.detail-title {
+  color: var(--green);
+  font-weight: 800;
+  font-size: 1.2rem;
+  text-align: left;
+}
+#detail-desc {
+  margin-top: 0.75rem;
+  color: #333;
+  text-align: left;
+}
+#detail-extra {
+  margin-top: 0.5rem;
+  text-align: left;
+}
+#detail-note {
+  color: var(--green);
+  font-weight: 700;
+  text-align: left;
+}
+.price {
+  margin-top: 0.75rem;
+  font-weight: 700;
+  text-align: left;
+}
+.detail-warn {
+  color: #c51100;
+  font-size: 0.9rem;
+}
+.detail-bullet {
+  margin: 0.5rem 0 0 1.5rem;
+}
+.detail-img {
+  margin-top: 1rem;
+  background: transparent;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.detail-close {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+.detail-close .btn {
+  background: #fff;
+  color: var(--green);
+  border: 2px solid var(--green);
+}
+
+/* ===== 品牌榮譽 ===== */
+.honor-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+.honor-item {
+  flex: 0 1 520px;
+  text-align: center;
+}
+.honor-item img {
+  height: 350px;
+  object-fit: cover;
+  margin: 20px auto 0;
+  display: block;
+}
+.honor-item p {
+  margin-top: 0.8rem;
+  color: #333;
+  line-height: 1.6;
+  font-weight: 700;
+}
+.award-caption {
+  margin-top: 1rem;
+  text-align: center;
+}
+.award-title {
+  font-weight: 800;
+  font-size: 1.8rem;
+  color: #000;
+}
+.award-badge {
+  font-weight: 800;
+  font-size: 2rem;
+  color: #c51100;
+}
+
+/* ===== 產品七大特色 ===== */
+.features {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+.feature {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  align-items: flex-start;
+  gap: 16px;
+  width: 100%;
+  max-width: 960px;
+  text-align: left;
+}
+.medal {
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+  flex: 0 0 96px;
+}
+.features .feature:nth-child(odd) {
+  margin-left: 0;
+}
+.features .feature:nth-child(even) {
+  margin-left: var(--stagger-offset);
+}
+.features .feature .row {
+  display: contents;
+}
+.features .feature p {
+  margin: 0;
+}
+
+/* 專利行左右：右欄對齊但不裁字（桌機固定，手機解絕對） */
+.kv {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+}
+.kv-left {
+  flex: 1;
+  text-align: left;
+}
+.kv-right {
+  position: absolute;
+  left: 420px;
+  white-space: nowrap;
+}
+
+/* ===== SGS / 檢驗合格（區塊骨架，覆蓋在文末） ===== */
+.cert-wrap {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+.cert-left {
+  flex: 0 0 60%;
+  min-width: 560px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.cert-left p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+.cert-left .highlight-red {
+  color: #c51100;
+  font-weight: 700;
+}
+.cert-left .highlight-black {
+  color: #000;
+  font-weight: 700;
+}
+.cert-left img {
+  height: 300px;
+  object-fit: contain;
+}
+.cert-right {
+  flex: 1 1 40%;
+  min-width: 320px;
+}
+.cert-right p {
+  color: #333;
+  line-height: 1.6;
+  font-weight: 700;
+  text-align: left;
+}
+
+.cert-notice-banner {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+.cert-notice-box {
+  display: inline-block;
+  border: 2px solid var(--green);
+  color: var(--green);
+  padding: 0.5rem 1rem;
+  font-weight: 700;
+}
+.cert-section {
+  margin-top: 2rem;
+}
+.cert-section h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+/* 檢驗書格狀 */
+.cert-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+.cert-card {
+  flex: 1 1 calc(25% - 1.5rem);
+  min-width: 220px;
+  text-align: center;
+}
+.cert-card img {
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+}
+.cert-card p {
+  margin-top: 0.5rem;
+  color: #333;
+  font-weight: 700;
+}
+
+/* ===== 發明專利證書（兩張左右） ===== */
+.flex-container {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+.flex-item {
+  flex: 1 1 300px;
+  min-width: 300px;
+}
+.patent-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.patent-item.flex-item {
+  flex: 0 1 48%;
+  min-width: 0;
+}
+.patent-item img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.patent-item p {
+  margin: 0;
+  color: #333;
+  line-height: 1.6;
+  font-weight: 700;
+}
+
+/* ===== 動物試驗 ===== */
+.animal-test-item {
+  margin-top: 2rem;
+  margin-left: 2rem;
+}
+.animal-test-item h3 {
+  text-align: left;
+}
+.animal-test-item p {
+  color: #333;
+  line-height: 1.4;
+  margin: 0;
+  white-space: pre-line;
+  font-weight: 700;
+}
+
+/* ===== Footer ===== */
+footer {
+  background: var(--green);
+  color: #fff;
+  padding: 2rem 1rem;
+  position: relative;
+}
+footer a {
+  color: #cde3d2;
+  text-decoration: underline;
+}
+footer .container {
+  position: relative;
+}
+.contact-title {
+  font-weight: 800;
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+  color: #fff;
+  text-align: left;
+  padding-right: 120px;
+}
+.foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+.foot-grid {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 0.5rem 1.5rem;
+  min-width: 280px;
+  text-align: left;
+}
+.foot-r {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  justify-content: center;
+  min-width: 280px;
+  text-align: right;
+  margin-left: auto;
+}
+.top-circle {
+  position: absolute;
+  top: -56px;
+  right: 0;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--green);
+  border: 4px solid var(--green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: 1px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  z-index: 5;
+}
+
+/* ===== RWD ===== */
+@media (max-width: 1200px) {
+  .container {
+    padding: 24px;
+  }
+}
+@media (max-width: 992px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .container.hero {
+    width: 100%;
+    transform: none;
+  }
+  .hero-side {
+    height: auto;
+  }
+  .cert-wrap {
+    flex-wrap: wrap;
+  }
+  .cert-left {
+    min-width: 420px;
+    flex: 1 1 60%;
+  }
+  .cert-right {
+    flex: 1 1 40%;
+  }
+}
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    order: 1;
+  }
+  .brand-logo {
+    order: 2;
+  }
+  .nav-wrap {
+    flex-wrap: wrap;
+  }
+  .nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: #003400;
+    padding: 10px 0;
+    order: 3;
+    gap: 0;
+  }
+  .nav.show {
+    display: flex;
+  }
+  .nav a {
+    padding: 10px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  .brand {
+    font-size: 1rem;
+  }
+
+  .hero {
+    display: block !important;
+    gap: 0 !important;
+  }
+  .container.hero {
+    width: 100% !important;
+    transform: none !important;
+    padding-inline: 20px;
+  }
+  .carousel {
+    width: 100% !important;
+    height: auto !important;
+  }
+  #carImg {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: cover !important;
+    border-radius: 8px;
+  }
+  .hero-side {
+    align-items: center !important;
+    text-align: center !important;
+    margin-top: 1rem;
+  }
+  .hero-side .hero-logo-wrapper {
+    justify-content: flex-end !important;
+    width: 100%;
+  }
+  .hero-side .hero-logo-wrapper img {
+    height: 56px;
+  }
+  .hero-side > img {
+    width: 80% !important;
+    max-height: none !important;
+    height: auto !important;
+    margin: 0 auto;
+  }
+  .hero-slogan {
+    padding: 0.5rem;
+  }
+  .hero-slogan p {
+    font-size: 1.4rem;
+    line-height: 1.5;
+  }
+
+  .features {
+    display: block !important;
+  }
+  .features .feature {
+    margin: 28px 0 !important;
+    grid-template-columns: 96px 1fr !important;
+  }
+  .features .feature:nth-child(even) {
+    margin-left: 0 !important;
+  }
+  .kv {
+    position: static !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    row-gap: 4px !important;
+  }
+  .kv-right {
+    position: static !important;
+    white-space: normal !important;
+  }
+  .card {
+    width: 100%;
+  }
+  .btns {
+    flex-wrap: wrap;
+  }
+
+  .patent-item.flex-item {
+    flex: 1 1 100% !important;
+  }
+
+  .contact-title {
+    padding-right: 0;
+    text-align: center;
+  }
+  .foot {
+    justify-content: center;
+  }
+  .foot-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .foot-r {
+    width: 100%;
+    text-align: right;
+  }
+
+  .top-circle {
+    width: 64px;
+    height: 64px;
+    font-size: 14px;
+    top: -36px;
+    right: 6px;
+  }
+  .award-title {
+    font-size: 1.4rem;
+  }
+  .award-badge {
+    font-size: 1.6rem;
+  }
+}
+@media (max-width: 600px) {
+  .features .patent-list .kv {
+    display: grid !important;
+  }
+}
+@media (max-width: 560px) {
+  .cert-wrap {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .cert-left,
+  .cert-right {
+    width: 100%;
+  }
+  .cert-left img {
+    width: 85%;
+    max-width: 360px;
+    height: auto;
+    object-fit: contain;
+    margin: 0 auto;
+  }
+  .cert-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    justify-items: center;
+  }
+  .cert-card img {
+    width: 85%;
+    max-width: 360px;
+    height: auto;
+    object-fit: contain;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 480px) {
+  .container {
+    padding: 20px;
+  }
+  .hero-slogan p {
+    font-size: 1.3rem;
+  }
+  .titleline h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* =========================
+   覆蓋：衛生局備查 + 六種動物毒理（最終版）
+   ========================= */
+
+/* 桌機：左圖；右欄 = 上圖 + 下文字；動物毒理接在右欄下方並對齊 */
+@media (min-width: 993px) {
+  .cert-section .tfda-item {
+    display: grid !important;
+    grid-template-columns: 36% 1fr !important;
+    column-gap: 24px !important;
+    align-items: start !important;
+  }
+  .cert-section .tfda-item > * {
+    min-width: 0 !important;
+  }
+
+  .cert-section .tfda-item > img {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+    align-self: start !important;
+  }
+
+  .cert-section .tfda-sub-item {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+  }
+  .cert-section .tfda-sub-item img {
+    width: 520px !important;
+    max-width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+    margin: 0 !important;
+  }
+  .cert-section .tfda-sub-item p {
+    margin: 0 !important;
+    line-height: 1.6 !important;
+    text-align: left !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+  }
+
+  /* 六種動物毒理：與右欄左緣對齊，寬度與上圖一致 */
+  .cert-section .animal-test-item {
+    margin-top: 28px !important;
+    margin-left: calc(36% + 24px) !important;
+    max-width: 520px !important;
+  }
+}
+
+/* 平板/手機：直排，右欄圖縮小，圖在上文字在下 */
+@media (max-width: 992px) {
+  .cert-section .tfda-sub-item {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 12px !important;
+  }
+  .cert-section .tfda-sub-item img {
+    width: 85% !important;
+    max-width: 340px !important;
+    height: auto !important;
+  }
+  .cert-section .tfda-sub-item p {
+    width: 100% !important;
+    text-align: left !important;
+  }
+  .cert-section .animal-test-item {
+    margin-left: 0 !important;
+    max-width: 720px !important;
+  }
+}
+
+/* ===== 發明專利證書：桌機左右卡片，卡片內左圖右文；手機直排 ===== */
+@media (min-width: 993px) {
+  .patent-item.flex-item {
+    flex: 0 1 48% !important;
+    min-width: 0 !important;
+  }
+  .patent-item {
+    display: flex !important;
+    align-items: center !important;
+    gap: 16px !important;
+  }
+  .patent-item img {
+    flex: 0 0 260px !important;
+    max-width: 40% !important;
+    height: auto !important;
+    object-fit: contain !important;
+  }
+  .patent-item p {
+    writing-mode: horizontal-tb !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+    line-height: 1.6 !important;
+    margin: 0 !important;
+    text-align: left !important;
+  }
+}
+@media (max-width: 992px) {
+  .patent-item.flex-item {
+    flex: 1 1 100% !important;
+  }
+  .patent-item {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 12px !important;
+  }
+  .patent-item img {
+    width: 85% !important;
+    max-width: 420px !important;
+    height: auto !important;
+    object-fit: contain !important;
+  }
+  .patent-item p {
+    writing-mode: horizontal-tb !important;
+    text-align: center !important;
+  }
+}
+
+/* ===== Footer：右欄靠右，標籤與值同列 ===== */
+.foot {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 2rem !important;
+  justify-content: space-between !important;
+}
+.foot-grid {
+  display: grid !important;
+  grid-template-columns: auto 1fr !important;
+  gap: 0.5rem 1.5rem !important;
+  min-width: 280px !important;
+  text-align: left !important;
+}
+/* === HOTFIX A：Hero 又重疊 — 強制雙欄且不互踩 === */
+.container.hero {
+  width: 110% !important;
+  transform: translateX(-5%) !important;
+}
+.hero {
+  display: grid !important;
+  grid-template-columns: minmax(0, 60%) minmax(0, 40%) !important;
+  align-items: stretch !important;
+  gap: 16px !important;
+}
+.hero > * {
+  min-width: 0 !important;
+} /* 兩欄允許收縮，避免擠壓重疊 */
+.carousel,
+.hero-side {
+  position: relative !important;
+  z-index: 0 !important;
+}
+.hero-side > img {
+  max-width: 100% !important;
+  height: auto !important;
+  align-self: flex-end !important;
+}
+
+/* === HOTFIX B：『產品目前通過的六種動物獨立實驗』靠左 === */
+@media (min-width: 993px) {
+  .cert-section .animal-test-item {
+    margin-left: 0 !important; /* 不跟右欄對齊了 → 直接靠容器左側 */
+    max-width: unset !important;
+    text-align: left !important;
+  }
+}
+/* === HOTFIX：'六種動物毒理實驗' 強制換到下一行，整塊靠左 === */
+
+/* 父層要可換行 */
+.cert-section > .flex-container {
+  display: flex !important;
+  flex-wrap: wrap !important;
+}
+
+/* 子層：六種動物毒理實驗 => 佔滿整列，換到下一行 */
+.cert-section > .flex-container > .animal-test-item {
+  flex: 0 0 100% !important; /* 佔滿 100% 寬，必定另起一行 */
+  width: 100% !important;
+  margin-left: 0 !important; /* 靠容器左側 */
+  text-align: left !important;
+}
+
+/* 同時把右邊那張「核准備查」證書的說明文字放在圖片下面（桌機） */
+@media (min-width: 993px) {
+  .tfda-item {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 24px !important;
+    flex-wrap: nowrap !important;
+  }
+  .tfda-item > img {
+    flex: 0 0 36% !important; /* 左邊大圖 */
+    max-width: 36% !important;
+    height: auto !important;
+    object-fit: contain !important;
+  }
+  .tfda-sub-item {
+    flex: 1 1 64% !important; /* 右側容器 */
+    display: flex !important;
+    flex-direction: column !important; /* 圖在上、文字在下 */
+    align-items: flex-start !important;
+    gap: 12px !important;
+    min-width: 0 !important;
+  }
+  .tfda-sub-item img {
+    width: clamp(300px, 48%, 520px) !important; /* 合理大小 */
+    height: auto !important;
+    object-fit: contain !important;
+  }
+  .tfda-sub-item p {
+    margin: 0 !important;
+    line-height: 1.6 !important;
+    text-align: left !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+  }
+}
+/* === TFDA 區塊尺寸微調（桌機）=== */
+@media (min-width: 993px) {
+  .tfda-item {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 24px !important;
+    flex-wrap: nowrap !important;
+  }
+  /* 左邊公文圖：放大到穩定寬度 */
+  .tfda-item > img {
+    flex: 0 0 380px !important;
+    max-width: 380px !important;
+    height: auto !important;
+    object-fit: contain !important;
+  }
+  /* 右側容器：圖在上、文字在下 */
+  .tfda-sub-item {
+    flex: 1 1 auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    min-width: 0 !important;
+  }
+  /* 右邊「核准備查」圖：縮到合理寬，不要過大 */
+  .tfda-sub-item img {
+    width: 520px !important; /* 你要更小就改這裡，例如 480px */
+    max-width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+  }
+  /* 右邊文字固定在圖下方、跟圖左緣對齊 */
+  .tfda-sub-item p {
+    max-width: 520px !important; /* 與上方圖片同寬 */
+    margin: 0 !important;
+    text-align: left !important;
+    line-height: 1.6 !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+  }
+}
+/* ===========================
+   行動版（≤768px）總整理修正
+   直接貼在 CSS 最底部
+   =========================== */
+@media (max-width: 768px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  /* 全站圖片：不要固定高，避免被裁切 */
+  img {
+    max-width: 100%;
+    height: auto !important;
+    object-fit: contain;
+  }
+
+  .container {
+    padding: 20px;
+  }
+
+  /* Header：Logo 保持小、靠右 */
+  .brand {
+    font-size: 1rem;
+    white-space: nowrap;
+  }
+  .nav-wrap {
+    flex-wrap: wrap;
+  }
+  .menu-toggle {
+    display: block;
+    order: 1;
+  }
+  .brand-logo {
+    order: 2;
+    margin-left: auto;
+  } /* 讓品牌跑到右上角 */
+  .nav {
+    display: none;
+    order: 3;
+    width: 100%;
+    background: #003400;
+    padding: 10px 0;
+    flex-direction: column;
+    gap: 0;
+  }
+  .nav.show {
+    display: flex;
+  }
+  .nav a {
+    padding: 10px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  /* Hero：改單欄直排，不重疊、不裁切 */
+  .container.hero {
+    width: 100% !important;
+    transform: none !important;
+    padding-inline: 20px;
+  }
+  .hero {
+    display: block !important;
+    gap: 0 !important;
+  }
+  .carousel {
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  #carImg {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: cover !important;
+  }
+  .hero-side {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    margin-top: 12px;
+  }
+  .hero-side .hero-logo-wrapper {
+    width: 100%;
+    justify-content: flex-end !important;
+  }
+  .hero-side .hero-logo-wrapper img {
+    height: 56px !important;
+    width: auto;
+  }
+  .hero-slogan {
+    padding: 0.5rem;
+  }
+  .hero-slogan p {
+    font-size: 1.35rem;
+    line-height: 1.5;
+  }
+  .hero-side > img {
+    width: 80% !important;
+    height: auto !important;
+    margin: 0 auto;
+  }
+
+  /* 產品卡滿寬 */
+  .card {
+    width: 100%;
+  }
+  .btns {
+    flex-wrap: wrap;
+  }
+
+  /* 七大特色：取消錯位、右欄允許換行不截字 */
+  .features {
+    display: block !important;
+  }
+  .features .feature {
+    margin: 24px 0 !important;
+    display: grid !important;
+    grid-template-columns: 96px 1fr !important;
+    gap: 16px !important;
+  }
+  .features .feature:nth-child(even) {
+    margin-left: 0 !important;
+  }
+  .kv {
+    position: static !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    row-gap: 4px !important;
+  }
+  .kv-right {
+    position: static !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere;
+  }
+
+  /* ===== 衛生局備查（手機版：直向排） =====
+       1) 左「公文大圖」
+       2) 右「核准備查大圖」
+       3) 右圖下方三行文字（靠左、與圖同寬）
+    */
+  .tfda-item {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 14px !important;
+    align-items: center !important;
+  }
+  .tfda-item > img {
+    width: 88vw !important;
+    max-width: 560px !important;
+    height: auto !important;
+    object-fit: contain !important;
+  }
+  .tfda-sub-item {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 10px !important;
+  }
+  .tfda-sub-item img {
+    width: 88vw !important;
+    max-width: 560px !important;
+    height: auto !important;
+    object-fit: contain !important;
+  }
+  .tfda-sub-item p {
+    width: 88vw !important;
+    max-width: 560px !important;
+    text-align: left !important;
+    line-height: 1.6 !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    margin: 0 !important;
+  }
+
+  /* 「產品目前通過的六種動物毒理實驗」：標題一定另起一行靠左 */
+  .cert-section h3 {
+    margin-top: 1.75rem;
+    text-align: left;
+  }
+  /* 這一段標題在 PDF 是接在「衛生局備查」區塊下方獨立一行 */
+  .cert-section .flex-container {
+    width: 100%;
+  }
+
+  /* 檢驗書格狀 → 單欄縮圖 */
+  .cert-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+    justify-items: center !important;
+  }
+  .cert-card img {
+    width: 85% !important;
+    max-width: 360px !important;
+    height: auto !important;
+    object-fit: contain !important;
+    margin: 0 auto !important;
+  }
+
+  /* 發明專利：直排（圖上文下） */
+  .patent-item.flex-item {
+    flex: 1 1 100% !important;
+  }
+  .patent-item {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 10px !important;
+  }
+  .patent-item img {
+    width: 85% !important;
+    max-width: 420px !important;
+    height: auto !important;
+    object-fit: contain !important;
+  }
+  .patent-item p {
+    writing-mode: horizontal-tb !important;
+    text-align: center !important;
+  }
+
+  /* Footer：手機也維持「標籤｜值」同一行（兩欄） */
+  .foot {
+    justify-content: space-between !important;
+    gap: 1.25rem !important;
+  }
+  .foot-grid {
+    display: grid !important;
+    grid-template-columns: auto 1fr !important;
+    gap: 0.5rem 1rem !important;
+    text-align: left !important;
+  }
+  .foot-r {
+    width: auto !important;
+    text-align: right !important;
+    margin-left: auto !important;
+  }
+  .contact-title {
+    padding-right: 0;
+    text-align: center;
+  }
+
+  /* 細節字級微縮，避免換行太多 */
+  .award-title {
+    font-size: 1.35rem;
+  }
+  .award-badge {
+    font-size: 1.55rem;
+  }
+}
+
+/* 更窄（≤560px）：再縮小 SGS 圖片與卡片間距，避免被切到 */
+@media (max-width: 560px) {
+  .tfda-item > img,
+  .tfda-sub-item img,
+  .tfda-sub-item p {
+    width: 92vw !important;
+    max-width: 92vw !important;
+  }
+
+  .cert-card img {
+    width: 92vw !important;
+    max-width: 92vw !important;
+  }
+  .patent-item img {
+    width: 92vw !important;
+    max-width: 92vw !important;
+  }
+}
+/* === [覆蓋修正（請貼在 styles.css 最底部）] === */
+
+/* 1) 品牌故事：手機也維持左右並排、不換行 */
+@media (max-width: 768px) {
+  .story-container {
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 8px !important;
+    align-items: stretch !important;
+  }
+  .story-container img:nth-of-type(1),
+  .story-container img:nth-of-type(2) {
+    height: auto !important;
+    object-fit: cover !important;
+  }
+  .story-container img:nth-of-type(1) {
+    width: 36% !important;
+  }
+  .story-container img:nth-of-type(2) {
+    width: 64% !important;
+  }
+}
+
+/* 2) 產品七大特色：手機版也保留奇偶數穿插（錯位） */
+@media (max-width: 768px) {
+  .features {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 24px !important;
+  }
+  .features .feature {
+    display: grid !important;
+    grid-template-columns: 96px 1fr !important;
+    gap: 16px !important;
+    margin: 0 !important; /* 先歸零 */
+  }
+  .features .feature:nth-child(odd) {
+    margin-left: 0 !important;
+  }
+  .features .feature:nth-child(even) {
+    margin-left: 28px !important;
+  } /* 可微調 20~36px */
+}
+
+/* 3) 產品檢驗：左邊圖片要與「產品須通過 國際檢測…」這行左緣對齊 */
+@media (max-width: 992px) {
+  .cert-left p {
+    text-align: left !important;
+  }
+  .cert-left img {
+    margin: 0 !important; /* 取消置中 */
+    align-self: flex-start !important; /* 對齊左側 */
+  }
+}
+@media (max-width: 560px) {
+  .cert-left img {
+    width: 92vw !important;
+    max-width: 92vw !important;
+    margin: 0 !important;
+    align-self: flex-start !important;
+  }
+}
+
+/* 4) Footer 最右側整段（鼎久生技… COPYRIGHT）：置右且不換行，字變小 */
+.foot-r {
+  display: flex !important;
+  flex-direction: row !important; /* 同一行排 */
+  align-items: center !important;
+  gap: 12px !important;
+  margin-left: auto !important;
+  text-align: right !important;
+  white-space: nowrap !important; /* 不換行 */
+  overflow: hidden; /* 超出就截斷 */
+  text-overflow: ellipsis;
+}
+.foot-r > * {
+  white-space: nowrap !important;
+}
+
+@media (max-width: 768px) {
+  .foot-r {
+    font-size: 0.9rem !important;
+  }
+}
+@media (max-width: 480px) {
+  .foot-r {
+    font-size: 0.8rem !important;
+  }
+}
+/* === Footer COPYRIGHT 整段允許換行，但靠右 === */
+.foot-r {
+  display: block !important;
+  text-align: right !important;
+  white-space: normal !important; /* 可以自動換行 */
+  word-break: break-word !important; /* 確保小螢幕不會溢出 */
+  font-size: 0.85rem !important; /* 手機字再小一點 */
+  line-height: 1.5 !important;
+}
+/* === 品牌榮譽標題與上方區塊間距 === */
+#honor .titleline {
+  margin-top: 3rem !important; /* 原本可能 1.5rem → 拉大 */
+  margin-bottom: 1.5rem; /* 保持下方距離一致 */
+}
